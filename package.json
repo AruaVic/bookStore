@@ -8,7 +8,7 @@
     "build": "webpack",
     "start": "webpack-dev-server --content-base ./ --open --progress --inline --hot"
   },
-  "author": "zhang",
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "react": "^16.3.1",

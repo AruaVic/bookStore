@@ -5,10 +5,10 @@
   "main": "src/app/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack",
-    "dev": "webpack-dev-server --content-base ./ --open --progress --inline --hot"
+    "build": "webpack",
+    "start": "webpack-dev-server --content-base ./ --open --progress --inline --hot"
   },
-  "author": "zhang",
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "react": "^16.3.1",

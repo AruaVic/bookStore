@@ -1,2 +1,9 @@
 node_modules
 npm-debug.log
+
+build/static
+build/index.html
+
+.idea/
+
+semantic

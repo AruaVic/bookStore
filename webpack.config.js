@@ -10,8 +10,8 @@ var BUILD_PATH = path.resolve(ROOT_PATH, 'build/static'); //发布文件所存�
 
 module.exports = {
     entry: {
-        app: APP_FILE,
-        // vendor: ['react', 'react-dom', 'react-router']
+        app: APP_PATH,
+        vendor: ['react', 'react-dom', 'react-router']//把
     },
     devtool:'eval-source-map',
     output: {
@@ -36,19 +36,39 @@ module.exports = {
         },{
             test: /\.css$/,
             exclude: /^node_modules$/,
-            loader: ExtractTextPlugin.extract('style', ['css', 'autoprefixer'])
+            loader: ExtractTextPlugin.extract({
+                fallback: 'style-loader',
+                use: [
+                    'css-loader',
+                    'autoprefixer-loader'
+                ]
+            })
         }, {
             test: /\.less$/,
             exclude: /^node_modules$/,
-            loader: ExtractTextPlugin.extract('style', ['css', 'autoprefixer', 'less'])
+            loader: ExtractTextPlugin.extract({
+                fallback: 'style-loader',
+                use: [
+                    'css-loader',
+                    'autoprefixer-loader',
+                    'less-loader'
+                ]
+            })
         }, {
             test: /\.scss$/,
             exclude: /^node_modules$/,
-            loader: ExtractTextPlugin.extract('style', ['css', 'autoprefixer', 'sass'])
+            loader: ExtractTextPlugin.extract({
+                fallback: 'style-loader',
+                use: [
+                    'css-loader',
+                    'autoprefixer-loader',
+                    'sass-loader'
+                ]
+            })
         }, {
             test: /\.(eot|woff|svg|ttf|woff2|gif|appcache)(\?|$)/,
             exclude: /^node_modules$/,
-            loader: 'file-loader?name=[name].[ext]'
+            loader: 'file-loader?name=fonts/[name].[ext]'  //name的作用,用file-loader解析的所有font文件都放在fonts文件夹下
         }, {
             test: /\.(png|jpg|gif)$/,
             exclude: /^node_modules$/,
@@ -59,23 +79,22 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({                    //根据模板插入css/js等生成最终HTML
-            filename: '../index.html',             //生成的html存放路径，相对于output中的path而言的
+            filename: 'index.html',             //生成的html存放路径，相对于output中的path而言的
             template: './src/template/index.html', //html模板路径
             inject: 'body',
             hash: true
         }),
-        new ExtractTextPlugin('[name].css'),
-        // new webpack.optimize.CommonsChunkPlugin({name: 'vendor',
-        //     filename: '[name].js'
-        // }),
-        new ExtractTextPlugin('[name].css'),
-        new webpack.optimize.UglifyJsPlugin({
-            output: {
-                comments: false // remove all comments （移除所有注释）
-            },
-            compress: {          // 压缩
-                warnings: false
-            }
+        new ExtractTextPlugin({filename: 'css/[name].css'}),//filename的值指的是打包时会生成css文件夹把生成的css后缀文件都放在css文件夹下
+        new webpack.optimize.CommonsChunkPlugin({name: 'vendor',
+            filename: 'vendor.js'
         })
+        // new webpack.optimize.UglifyJsPlugin({
+        //     output: {
+        //         comments: false // remove all comments （移除所有注释）
+        //     },
+        //     compress: {          // 压缩
+        //         warnings: false
+        //     }
+        // })
     ]
 };

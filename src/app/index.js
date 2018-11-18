@@ -5,7 +5,7 @@ export default class defaultComponent extends React.Component {
         return (
             <div>
                 <div className="shopping-list">
-                    <h1>Shopping List for name1111</h1>
+                    <h1>Shopping List for name is qzq</h1>
                     <ul>
                         <li>Instagram666</li>
                         <li>WhatsApp</li>

@@ -5,7 +5,7 @@ export default class defaultComponent extends React.Component {
         return (
             <div>
                 <div className="shopping-list">
-                    <h1>Shopping List for name is qzq master adahsdkh</h1>
+                    <h1>Shopping List for name</h1>
                     <h2>test git commit</h2>
                     <ul>
                         <li>Instagram666</li>

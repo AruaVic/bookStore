@@ -18,7 +18,7 @@ export default class defaultComponent extends React.Component {
                 <button className="ui labeled icon button"><i className="pause icon"></i> Pause </button>
                 <button className="ui right labeled icon button"><i className="right arrow icon"></i> Next </button>
                 <button className="ui primary button">Save </button>
-                <button className="ui button">Discard </button>
+                <button className="ui button">Discard sdasd </button>
             </div>
         );
     }

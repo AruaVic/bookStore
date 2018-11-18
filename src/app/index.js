@@ -8,7 +8,7 @@ export default class defaultComponent extends React.Component {
                     <h1>Shopping List for name is qzq</h1>
                     <ul>
                         <li>Instagram666</li>
-                        <li>WhatsApp</li>
+                        <li>WhatsApp111</li>
                         <li>Oculus</li>
                         <li>WhatsApp</li>
                         <li>whatAoosd11</li>
